@@ -23,7 +23,7 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
     }
     
     @ExceptionHandler(EmailNotificationException.class)
-    public final ResponseEntity<ErrorResponse> handleDatabaseException(Exception ex, WebRequest request) {
+    public final ResponseEntity<ErrorResponse> handleEmailNotificationException(Exception ex, WebRequest request) {
         ErrorResponse errorResponse = new ErrorResponse(LocalDateTime.now().toString(), HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
